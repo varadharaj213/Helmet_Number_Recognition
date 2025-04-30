@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helmet Defaulters</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='defaulters.css') }}">
+</head>
+<body>
+    <h2>Helmet Defaulters</h2>
+    {% if defaulters %}
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Register Number</th>
+            <th>Vehicle Number</th>
+            <th>Department</th>
+            <th>Email</th>
+            <th>Date/Time</th>
+        </tr>
+        {% for defaulter in defaulters %}
+        <tr>
+            <td>{{ defaulter['Name'] }}</td>
+            <td>{{ defaulter['Register Number'] }}</td>
+            <td>{{ defaulter['Vehicle Number'] }}</td>
+            <td>{{ defaulter['Department'] }}</td>
+            <td>{{ defaulter['Email'] }}</td>
+            <td>{{ defaulter['Date/Time'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    {% else %}
+    <p>No defaulters found.</p>
+    {% endif %}
+    <br>
+    <form action="{{ url_for('send_violation_emails') }}" method="POST">
+        <button type="submit" class="btn btn-danger">Send Violation Emails</button>
+    </form>
+</body>
+</html>

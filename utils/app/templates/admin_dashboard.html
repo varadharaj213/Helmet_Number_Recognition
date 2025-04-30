@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='admin_dashboard.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
+        <a href="{{ url_for('download_students') }}">Download Student Registration Data</a>
+        <br>
+        <a href="{{ url_for('defaulters') }}">View Helmet Defaulters</a>
+        <br>
+        <a href="http://localhost:8501/">Helmet Defaulters Analyser</a>
+    </div>
+</body>
+</html>
